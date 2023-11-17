@@ -4,7 +4,7 @@
  * them to run sooner, but does not allow tons of sleepers to
  * rip the spread apart.
  */
-SCHED_FEAT(GENTLE_FAIR_SLEEPERS, true)
+SCHED_FEAT(GENTLE_FAIR_SLEEPERS, false)
 
 /*
  * Place new tasks ahead so that they do not starve already running
@@ -104,7 +104,7 @@ SCHED_FEAT(FIND_BEST_TARGET, true)
  *   the EAS path for wakeup task placement. Otherwise, put
  *   those tasks through the mainline slow path.
  */
-SCHED_FEAT(EAS_PREFER_IDLE, false)
+SCHED_FEAT(EAS_PREFER_IDLE, true)
 
 /*
  * Request max frequency from schedutil whenever a RT task is running.
@@ -120,4 +120,4 @@ SCHED_FEAT(SUGOV_RT_MAX_FREQ, false)
  * If disabled, this behaviour will only apply to tasks of the
  * RT class.
  */
-SCHED_FEAT(SCHEDTUNE_BOOST_HOLD_ALL, false)
+SCHED_FEAT(SCHEDTUNE_BOOST_HOLD_ALL, true)

@@ -302,8 +302,7 @@ static void do_input_boost(struct kthread_work *work)
 	if (!ret)
 		stune_boost_active = true;
 
-	queue_delayed_work(cpu_boost_wq, &dynamic_stune_boost_rem,
-					msecs_to_jiffies(dynamic_stune_boost_ms));
+	schedule_delayed_work(&dynamic_stune_boost_rem, msecs_to_jiffies(dynamic_stune_boost_ms));
 #endif /* CONFIG_DYNAMIC_STUNE_BOOST */
 	
 	schedule_delayed_work(&input_boost_rem, msecs_to_jiffies(input_boost_ms));
@@ -352,8 +351,7 @@ void do_input_boost_max()
 	if (!ret)
 		stune_boost_active = true;
 
-	queue_delayed_work(cpu_boost_wq, &dynamic_stune_boost_rem,
-					msecs_to_jiffies(dynamic_stune_boost_ms));
+	schedule_delayed_work(&dynamic_stune_boost_rem, msecs_to_jiffies(1500));
 #endif /* CONFIG_DYNAMIC_STUNE_BOOST */
 
 	schedule_delayed_work(&input_boost_rem, msecs_to_jiffies(1500));

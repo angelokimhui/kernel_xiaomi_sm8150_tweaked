@@ -7043,7 +7043,7 @@ out:
 
 static bool ufshcd_wb_sup(struct ufs_hba *hba)
 {
-	return !!(hba->dev_info.d_ext_ufs_feature_sup &
+	return (hba->dev_info.d_ext_ufs_feature_sup &
 		  UFS_DEV_WRITE_BOOSTER_SUP);
 }
 

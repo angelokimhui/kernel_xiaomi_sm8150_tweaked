@@ -263,6 +263,9 @@ void do_input_boost_max()
 {
 	unsigned int i, ret;
 	struct cpu_sync *i_sync_info;
+	
+	if (!cpu_boost_worker_thread)
+		return;
 
 	/* Set the input_boost_min for all CPUs in the system */
 	for_each_possible_cpu(i) {

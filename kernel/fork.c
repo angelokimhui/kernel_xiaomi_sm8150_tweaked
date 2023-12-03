@@ -2370,8 +2370,9 @@ long _do_fork(unsigned long clone_flags,
 	int trace = 0;
 	long nr;
 	
-	if (is_zygote_pid(current->pid))
+	if (task_is_zygote(current)) {
 		do_input_boost_max();
+	}
 
 	/*
 	 * Determine whether and which event to report to ptracer.  When
